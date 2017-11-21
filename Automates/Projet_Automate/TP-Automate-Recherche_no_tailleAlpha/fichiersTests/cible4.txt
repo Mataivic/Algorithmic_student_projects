@@ -1,0 +1,2 @@
+voiciuntexteutilisepourtesterunalphabetde26lettres,lesvirgules,lespoints,leschiffres.maispas
+lesmajusculesnilesaccentscirconflexesetlesespaces.cestballot.

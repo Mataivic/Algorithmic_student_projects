@@ -1,0 +1,159 @@
+Arbre = enregistrement
+element : D
+gauche, droite : pointeur vers Arbre
+fin enregistrement
+Parbre = pointeur vers arbre
+
+/* Ecrire le type Parbre pour implanter les arbres binaires à l'aide de pointeurs
+   Donner les codes des fonctions de l'interface du TAB (type abstrait de données) binaire
+   TAB : on utilise que les fonctions qu'on a créé dessus.
+   Pour un arbre non vide écrire les fonctions qui calculent :
+   	- la hauteur
+   	- le nombre de feuilles
+   	- le nombre de noeufs internes
+   	- le nombre de noeuds  
+   	
+   	Créer un arbre binaire de recherche avec 20, 8, 10, 22, 50, 40, 12, 15, 25, 30, 9, 21, 70, 44
+   	Supprimer 50 puis 20
+   	Simuler le tri par tas avec les mêmes valeurs
+   	Ecrire la fonction tri par tas 	
+*/
+
+
+fonction ArbreVide() : Parbre
+	début
+		retourner NIL
+	fin
+	
+fonvtion EstArbreVide(A: Parbre) : booleen
+	début
+		retourner A = NIL
+	fin
+	
+fonction Racine(A : Parbre) : D
+	prérequis : A est non vide
+	début :
+		retourner A.element
+	fin
+
+fonction Gauche(A: Parbre) : Parbre
+	prérequis : A est non vide
+	debut:
+		retourner A.gauche
+	fin
+
+fonction Droite(A: Parbre) : Parbre
+	prérequis : A est non vide
+	debut:
+		retourner A.droite
+	fin
+	
+fonction Construire(x: D; B,C: Parbre) : Parbre
+	debut:
+		A <- allouer
+		A.element <- x
+		A.gauche <- B
+		A.droite <- C
+		retourner A
+	fin
+	
+fonction hauteur(A : parbre) : entier
+	prérequis : A est non vide
+	debut:
+		SI EstArbreVide(Gauche(A))
+			ALORS
+				SI EstArbreVide(Droite(A))
+					ALORS
+						retourner 0
+				SINON
+					retourner 1 + hauteur(droite(A))
+		SINON
+			SI EstArbreVide(Droite(A))
+				ALORS
+					retourner 1 + hauteur(Gauche(A))
+			SINON 
+				retourner 1 + max(hauteur(Gauche(A)), hauteur (Droite(A)))
+			FINSI
+		FINSI
+	fin
+	
+macro : #define MAX(a,b) ((a)>(b) : (a)?(b))
+	
+fonction nbFeuille(A : parbre) : entier
+	prérequis : A est non vide
+	debut:
+		SI EstArbreVide(Gauche(A))
+			ALORS
+				SI EstArbreVide(Droite(A))
+					ALORS
+						retourner 1
+				SINON
+					retourner nbFeuilles(droite(A))
+		SINON
+			SI EstArbreVide(Droite(A))
+				ALORS
+					retourner nbFeuilles(Gauche(A))
+			SINON 
+				retourner nbFeuilles(Gauche(A)) + nbFeuilles(Droite(A))
+			FINSI
+		FINSI
+	fin
+	
+fonction nbNoeudsInternes(A : parbre) : entier
+	prérequis : A est non vide
+	debut:
+		SI EstArbreVide(Gauche(A))
+			ALORS
+				SI EstArbreVide(Droite(A))
+					ALORS
+						retourner 0
+				SINON
+					retourner 1 + nbNoeudsInternes(droite(A))
+		SINON
+			SI EstArbreVide(Droite(A))
+				ALORS
+					retourner 1 + nbNoeudsInternes(Gauche(A))
+			SINON 
+				retourner 1 + nbNoeudsInternes(Gauche(A)) + nbNoeudsInternes(Droite(A))
+			FINSI
+		FINSI
+	fin
+	
+fonction nbNoeuds(A : parbre) : entier
+	prérequis : A est non vide
+	debut:
+		SI EstArbreVide(Gauche(A))
+			ALORS
+				SI EstArbreVide(Droite(A))
+					ALORS
+						retourner 1
+				SINON
+					retourner 1 + nbNoeuds(droite(A))
+		SINON
+			SI EstArbreVide(Droite(A))
+				ALORS
+					retourner 1 + nbNoeuds(Gauche(A))
+			SINON 
+				retourner 1 + nbNoeuds(Gauche(A)) + nbNoeuds(Droite(A))
+			FINSI
+		FINSI
+	fin
+	
+fonction prefixe(A : Parbre) {
+	debut
+		SI nonEstArbreVide(A)
+			ALORS
+				ecrire(Racine(A))
+				prefixe(Gauche(A))
+				prefixe(Droite(A))
+		FINSI
+	fin
+	
+infixe(Gauche(A))
+ecrire(Racine(A))
+infixe(Droite(A))
+	
+postfixe(Gauche(A))
+postfixe(Droite(A))
+ecrire(Racine(A))
+				

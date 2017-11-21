@@ -1,0 +1,47 @@
+Ecrire une fonction qui crée une liste triée en fusionnant deux listes déjà triées données.
+Comparer les deux premiers éléments à chaque fois
+24 37 38
+12 30 43
+Compare 12 et 24, vire 12, compare 24 et 30, vire 24, compare 30 et 37, vire 30...
+->12, 25, 30, 37, 38, 43
+faire par ordre décroissant : faire avec ajouterEnTete
+
+
+FONCTION Fusion(x : Plist, y: list) : liste
+	DEBUT
+		l <- ListVide(l)
+		TANTQUE non EstListeVide(getSuivant(x)) ET non EstListeVide(getSuivant(y)) FAIRE
+			SI getElement(x) < getElement(y) ALORS
+				l <- ajoutEnTete(getElement(x))
+				getSuivant(x)
+				SINON
+					l <- ajoutEnTete(getElement(y))
+					getSuivant(y)
+				FINSI
+			FINSI
+		FINTANTQUE
+
+Correction : c'était juste ! Hourra !
+
+FONCTION Fusion(l1, l2 : Pliste) : Pliste
+	DEBUT
+		l <- ListeVide()
+		TANTQUE nonEstListeVide(l1) ET non estListeVide(l2) FAIRE
+			SI getElement(l1) < getElement(l2) ALORS
+				l <- ajoutEnTete(l, getElement(l1))
+				l1 <- getSuivant(l1)
+			SINON
+				l <- ajoutEnTete(l, getElement(l2))
+				l2 <- getSuivant(l2)
+			FINSI
+		FINTANTQUE
+		SI EstListeVide(l1) ALORS //renvoie la liste non vide si l'autre est vide
+			p <- l2
+		SINON
+			p <- l1
+		TANTQUE non EstListeVide(p) FAIRE
+			l <- AjoutEnTete(getElement(p)
+			p <- getSuivant(p)
+		FINTANTQUE
+		RETOURNER l
+	FIN

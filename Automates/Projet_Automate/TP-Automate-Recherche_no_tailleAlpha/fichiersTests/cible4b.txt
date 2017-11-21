@@ -1,0 +1,2 @@
+voici un texte utilise pour tester un alphabet de 26 lettres, les virgules, 
+lespoints, les chiffres. mais pas les majuscules ni les accents.

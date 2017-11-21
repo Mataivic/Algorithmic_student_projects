@@ -1,0 +1,20 @@
+Algorithmique avancée
+
+monge.univ-mlv.fr/~lecroq/cours/rectda.pdf
+
+fonction récursive : fonction qui s'appelle elle-même
+Avoir un cas d'arrêt (n=0 return 1 dans le cas de la fonction de calcul de factorielle)
+Il peut y avoir plusierus cas d'arrêt
+Hypothèse de récurrence : on suppose que la fonction est correcte jusqu'à un certain rang.
+
+Liste chaînée : l1 -> e1|p -> e2|p -> e4|x (x:NIL (NULL))
+
+en C. 
+malloc
+calloc
+
+l -> suivant. l pointe vers suivant.
+
+erreur dia 34 Pliste p; et pas p: Pliste p;
+
+https://openclassrooms.com/courses/la-recursivite-1

@@ -1,0 +1,33 @@
+fonction HANOI(k, X, Y, Z) //nb de disques, piliers
+	début
+		si k>0 alors
+			HANOI (k-1 X,Z,Y) // Y:le temporaire
+			DEPLACER(k, X, Y) //déplacer le disque k de X vers Y
+			HANOI(k-1, Z, Y, X)
+		finsi
+	fin
+
+HANOI(3, A, B, C)
+	HANOI(2, A, C, B)
+		HANOI(1, A, B, C)
+			HANOI(0, A, C, B)
+			DEPLACER(1, A, B) #1
+			HANOI(0, C, B, A)
+		DEPLACER(2, A, C) #2
+		HANOI(1, B, C, A)
+			HANOI(0, B, C)
+			DEPLACER(1, B, C) #3
+			HANOI(0, A, C, B)
+	DEPLACER(3, A, B) #4
+	HANOI(2, C, B, A) //de C vers B en utilisant A
+		HANOI(1, C, A, B)
+			HANOI(0, C, B, A)
+			DEPLACER(1, C, A) #5
+			HANOI(0, B, A, C)
+			DEPLACER(2, C, B) #6
+		HANOI(1, A, B, C)
+			HANOI(0, A, C, B)
+			DEPLACER(1, A, B) #7
+			HANOI(0, C, B, A)
+
+		\o/ Hourra

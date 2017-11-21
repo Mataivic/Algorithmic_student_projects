@@ -1,0 +1,17 @@
+4-Liste triée
+
+FONCTION insertionTriee (l: Pliste; x: D) : Pliste;
+	DEBUT
+		SI estListeVide(l) OU x <= getElement(l) ALORS
+			RETOURNER ajoutEnTete(l,x)
+		SINON
+			p <- l
+			TANTQUE non EstListeVide(getSuivant(p)) OU getElement(getSuivant(p)) < x FAIRE
+				p <- getElement(p)
+			FINTANTQUE
+			q <- allouer
+			setSuivant(q, getSuivant(p))
+			setSuivant(p,q)
+			RETOURNER l
+		FINSI
+	FIN

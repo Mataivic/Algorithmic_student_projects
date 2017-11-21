@@ -1,0 +1,47 @@
+fonction comptage_nucleotide (sequence, nucleotide)
+	compteur=0
+	pour i dans longueur(sequence)-1 faire
+		si sequence[i] == nucleotide alors
+			compteur += 1
+	return compteur
+
+fonction Parcours_comptage
+	Debut
+		compteur <- 0
+		tant que non est ListeVide(l) faire
+			si getElement == A alors
+				compteur += 1
+			  getSuivant(l)
+
+FONCTION compteNuclIter (l: Pliste: nuc: caractère) : entier
+	DEBUT:
+		compteur <- 0
+		TANT QUE non est ListeVide(l)	FAIRE
+			SI getElement(l) = nuc ALORS
+				compteur <- compteur + 1
+			FINSI
+			L <- getSuivant(l)
+		FINTANTQUE
+		RETOURNER compteur
+	FIN	
+
+FONCTION 	CompteNuclRec (l: Pliste; nuc : caractère) : entier
+	DEBUT:
+		SI estListeVide(l) ALORS
+			RETOURNER 0
+		SINON
+			SI getElement(l) = nuc ALORS
+				RETOURNER 1+compteNuclRec(getSuivant(l))
+			SINON
+				RETOURNER compteNuclRec(getSuivant(l))
+			FINSI
+		FINSI
+	FIN
+
+
+
+
+
+
+
+
